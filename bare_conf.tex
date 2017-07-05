@@ -460,7 +460,7 @@ One possible improvement of these logistics systems is the increase of the UAVs 
 
 Autonomous UAVs need to know what will happen in a future instant and what is the best decision to make at the present time; therefore, they require strategies not only to decompose their missions into meaningful sub-tasks, but also to track progress toward mission goals and the evolution of these tasks relative to the autonomous UAVs capabilities~\cite{finn2012developments}. As a consequence, in order to successfully perform a mission, it is recommended to perform task planning~\cite{finn2012developments}. Mission planning problems consist of planning events to meet certain requirements and objectives~\cite{krozel1988search}. Therefore, planning events is one of the main challenges faced in solving this problem.
 
-Both academy and industry have done researches about evaluation and optimization of mission planning in the last years. \citeasnoun{schwarz2012towards} have used ant colony to optimize UAV missions. Another paper investigates energy consumption for a factory and evaluates the logistic planning processes using statistical metrics of evaluation~\cite{muller2012analyzing}.
+Both academy and industry have done researches about evaluation and optimization of mission planning in the last years. In \cite{schwarz2012towards} is used ant colony to optimize UAV missions. Another paper investigates energy consumption for a factory and evaluates the logistic planning processes using statistical metrics of evaluation~\cite{muller2012analyzing}.
 
 %\textcolor{red}{Is there some related work that solves the problem? You have to describe here...}
 
@@ -482,7 +482,7 @@ As a result to this work, we have verified that the development and experiments 
 \section{Related Work}
 \label{sec:related}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-In the literature, there are attempts to implement UAV guidance systems that perform mission planning. \citeasnoun{doherty2009temporal} presented a framework architecture for mission planning and execution tracking applied to an unmanned helicopter. During the mission execution, knowledge is acquired through sensors, which were used to create state structures. These structures allow constructing a logical model, representing real system development and environment over time. The planning and monitoring modules use temporal action logic (TAL) to reason about actions and changes.
+In the literature, there are attempts to implement UAV guidance systems that perform mission planning. In \cite{doherty2009temporal} is presented a framework architecture for mission planning and execution tracking applied to an unmanned helicopter. During the mission execution, knowledge is acquired through sensors, which were used to create state structures. These structures allow constructing a logical model, representing real system development and environment over time. The planning and monitoring modules use temporal action logic (TAL) to reason about actions and changes.
 
 The NASA/U.S. Army autonomous helicopter project has developed a guidance system for the autonomous surveillance planning problem for multiple and different targets~\cite{whalley2005design}, which generates mission plans using a theoretical approach for decision making. A high-level standalone control is provided by the framework Apex~\cite{baer1998nasa}, a reactive procedure-based scheduler/planner used to perform mission-level tasks. Apex synthesizes a course of action primarily by linking elemental procedures expressed in procedural definition language (PDL), a notation developed specifically for the Apex reactive planner. This guidance system is integrated into a robotic helicopter and tested in more than $240$ scenarios.
 
@@ -490,7 +490,7 @@ A similar project, called Ressac (Research and Rescue by Cooperative Autonomous 
 
 The German Aerospace Center (DLR) has also developed a mission management system based on the behavior paradigm~\cite{adolf2010onboard}, which has been integrated with the ARTIS helicopter and validated in different scenarios, including waypoints follower, search and tracking mission.
 
-\citeasnoun{rodriguezstudy} investigate the performance analysis of UAV operators, w.r.t. agility, consumption, aggressiveness, precision and reflexes; each of those aspects has an evaluation metrics, in order to discover behavioral pattern of the operators.
+In \cite{rodriguezstudy} is investigated the performance analysis of UAV operators, w.r.t. agility, consumption, aggressiveness, precision and reflexes; each of those aspects has an evaluation metrics, in order to discover behavioral pattern of the operators.
 
 Existing approaches for evaluation of mission planners for intralogistics problems are either empirical or theoretical. This paper describes an approach combining both aspects. In addition, we test the metrics in a real environment, \textit{i.e.}, using a real UAV to perform a mission and we measure the cost (mission execution time) of the mission.
 
@@ -632,7 +632,7 @@ An optimization problem can be defined as a finite set of variables, where the c
 %In this section, we first investigate the UAV platform used (3DR IRIS+) in this study, describing the hardware characteristics and the control framework developed for intralogistics missions. 
 The core hardware of the UAV IRIS+ is the Pixhawk and we can control it using a Python library \cite{dronekit}, which uses Micro Air Vehicle Link (MAVLink) protocol~\cite{meier2011pixhawk}. MAVLink is a protocol for communicating with small unmanned vehicle, which is designed as a header-only message marshalling library.
 
-The IRIS+ UAV is integrated into a robot gripper to take and leave packages during missions (cf. Definition~\ref{def:mission}). We have connected a servo motor to the Pixhawk by one of the pulse width modulation (PWM) outputs. Figure~\ref{fig:hardArch} shows the system hardware architecture and the interconnections between each component module. In the hardware architecture shown in the Figure~\ref{fig:hardArch}, we can see the UAV hardware component connections where there is the Pixhawk (flight controller) and its connections between other components such as the compass, GPS, PWM outputs, battery and etc. Moreover, it shows the connection with a robot gripper using a PMW outupts as a signal control for the servo motor in the robot gripper. Finally, it shows the communication between a personal computer (PC) and the UAV via radio control (RC) signal.
+The IRIS+ UAV is integrated into a robot gripper to take and leave packages during missions (cf. Definition~\ref{def:mission}). We have connected a servo motor to the Pixhawk by one of the pulse width modulation (PWM) outputs. Figure~\ref{fig:hardArch} shows the system hardware architecture and the interconnections between each component module. In the hardware architecture shown in the Figure~\ref{fig:hardArch}, we can see the UAV hardware component connections where there is the Pixhawk (flight controller) and its connections between other components such as the compass, GPS, PWM outputs, battery and etc. Moreover, it shows the connection with a robot gripper using a PWM outputs as a signal control for the servo motor in the robot gripper. Finally, it shows the communication between a personal computer (PC) and the UAV via radio control (RC) signal.
 %
 \begin{figure}[H]
 	\centering
@@ -889,9 +889,9 @@ Finally, the evaluation of each mission planner is computed w.r.t. the optimal c
 
 In this study, we considered that mission planner is a software that generates a production mission (cf. Definition~\ref{def:prodMission}) given the warehouse and customer order. This program generates a \texttt{.mission} extension file containing a set of mission commands (cf. Definition~\ref{def:missioncommand}), as described in Section~\ref{sec:uav}. Two examples of planners are presented in this work and are employed to demonstrate the cost evaluation methodology.
 
-\subsubsection{Planner A}
+\subsubsection{Planner 1}
 
-In Algorithm~\ref{alg:planA}, we show a strategy to solve the mission planning problem and we denoted it as Planner A. In this particular algorithm, the production of X products has a higher priority over Y, {\it i.e.}, the inputs are firstly allocated to production of X orders, and the production of Y products begins if there is no other X to be produced. The general steps of planner A are described in Algorithm~\ref{alg:planA}.
+In Algorithm~\ref{alg:planA}, we show a strategy to solve the mission planning problem and we denoted it as Planner 1. In this particular algorithm, the production of X products has a higher priority over Y, {\it i.e.}, the inputs are firstly allocated to production of X orders, and the production of Y products begins if there is no other X to be produced. The general steps of planner 1 are described in Algorithm~\ref{alg:planA}.
 %
 \begin{algorithm}[ht]
 \scriptsize
@@ -926,12 +926,12 @@ bring Y to the client\;
 }
 }
 \captionsetup{list=no}
-\caption{Planner A}\label{alg:planA}
+\caption{Planner 1}\label{alg:planA}
 \end{algorithm}
 
-\subsubsection{Planner B}
+\subsubsection{Planner 2}
 
-The strategy for Planner B is a bit more complex than Planner A. In the Planner B strategy, the UAV starts to bring all the necessary inputs to make the first product X, taking all the A, B and C inputs, respectively, to the production line X. After bring all the necessary inputs to produce the first X product, the production line X starts to produce the X product and while the production line X is producing, the UAV goes to the warehouse to get the necessary inputs to produce the next product (either Planner A and Planner B produce firstly the X products e then all the Y products). However, when the X product finishes producing, the UAV knows the instant and goes to the production line to get the X product to bring to the client place; and after that, the UAV goes back to bring the rest of the inputs. The UAV keeps work in the same way until it brings all the products to the client place. Differently to the Planner A, the Planner B does not wait the production in the production line. The UAV works as a scheduler and executes the mission faster than Planner A strategy, because it does not enter in a busy wait state. The general steps of planner B are shown in the Algorithm~\ref{alg:planB}.
+The strategy for Planner 2 is a bit more complex than Planner 1. In the Planner 2 strategy, the UAV starts to bring all the necessary inputs to make the first product X, taking all the A, B and C inputs, respectively, to the production line X. After bring all the necessary inputs to produce the first X product, the production line X starts to produce the X product and while the production line X is producing, the UAV goes to the warehouse to get the necessary inputs to produce the next product (either Planner 1 and Planner 2 produce firstly the X products e then all the Y products). However, when the X product finishes producing, the UAV knows the instant and goes to the production line to get the X product to bring to the client place; and after that, the UAV goes back to bring the rest of the inputs. The UAV keeps work in the same way until it brings all the products to the client place. Differently to the Planner 1, the Planner 2 does not wait the production in the production line. The UAV works as a scheduler and executes the mission faster than Planner 1 strategy, because it does not enter in a busy wait state. The general steps of planner 2 are shown in the Algorithm~\ref{alg:planB}.
 %
 \begin{algorithm}[ht]
 \scriptsize
@@ -959,7 +959,7 @@ keep producing\;
 		bring X to the client\;
 		go back to producing\;}
 }
-\Repeat{production of all X elements finish}{
+\Repeat{production of all Y elements finish}{
 \uIf{the counter of that X is not $t_y$}{
 go to the warehouse\;
 \Repeat{until bring 2 B elements}{
@@ -978,7 +978,7 @@ keep producing\;
 }
 }
 \captionsetup{list=no}
-\caption{Planner B}\label{alg:planB}
+\caption{Planner 2}\label{alg:planB}
 \end{algorithm}
 
 
@@ -1016,29 +1016,29 @@ The results of each mission planner is compared to the optimal solution obtained
 
 \begin{tabular}{c|c|c|c|}
 \cline{2-4}
-                                        & \textbf{Planner A} & \textbf{Planner B} & \textbf{CPLEX} \\ \hline
+                                        & \textbf{Planner 1} & \textbf{Planner 2} & \textbf{CPLEX} \\ \hline
 \multicolumn{1}{|c|}{\textbf{Time (s)}} & 420                & 404                & 134            \\ \hline
 \end{tabular}
 \caption{Planners and optimal (CPLEX) times}
 \label{fig:comp}
 \end{table}
 
-The Table~\ref{fig:comp} shows the mission execution times obtained using the planner algorithms A and B, and the minimum value provided by CPLEX. Using the metrics shown in the section~\ref{sec:method}, then:
+The Table~\ref{fig:comp} shows the mission execution times obtained using the planner algorithms 1 and 2, and the minimum value provided by CPLEX. Using the metrics shown in the section~\ref{sec:method}, then:
 
 \begin{equation}
 \small
-MPCI_A=\frac{134}{420}=0.319
+MPCI_1=\frac{134}{420}=0.319
 \label{eq1}
 \end{equation}
 
 
 \begin{equation}
 \small
-MPCI_B=\frac{134}{408}=0.328
+MPCI_2=\frac{134}{408}=0.328
 \label{eq2}
 \end{equation}
 
-The MPCI indicates (cf. Eqs.~\eqref{alg:planA} and \eqref{alg:planB}) that planner B performs the mission more quickly and has a lower cost than planner A.
+The MPCI indicates (cf. Eqs.~\eqref{alg:planA} and \eqref{alg:planB}) that planner 2 performs the mission more quickly and has a lower cost than planner 1.
 
 \subsection{Practical Results}
 
@@ -1072,7 +1072,7 @@ The experiments were performed in both, simulator and real UAV system. The simul
 %\label{fig:planArq}
 %\end{figure}
 
-%The two mission files shown above, have exactly the same instances, that is, they have the same resources and have to perform the same mission that is to produce two products of type X and one of type Y. However, they execute the mission of Different way and have different performances. As discussed in Section~\ref{sec:acusto}, planner B has more \texttt{GoTo} commands than planner A (see Figure~\ref{fig:planArq}).
+%The two mission files shown above, have exactly the same instances, that is, they have the same resources and have to perform the same mission that is to produce two products of type X and one of type Y. However, they execute the mission of Different way and have different performances. As discussed in Section~\ref{sec:acusto}, planner 2 has more \texttt{GoTo} commands than planner 1 (see Figure~\ref{fig:planArq}).
 
 Table~\ref{table:plannersReal} presents the performance (total flight time) of both planners algorithms for simulations and tests with the (real) 3DR Iris+ UAV.
 
@@ -1083,7 +1083,7 @@ Table~\ref{table:plannersReal} presents the performance (total flight time) of b
 \hline
 \multirow{3}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Test\\ \#\end{tabular}}} & \multicolumn{4}{c|}{\textbf{Flight Time of Planners}}                                 \\ \cline{2-5} 
                                                                             & \multicolumn{2}{c|}{\textbf{Simulator}}   & \multicolumn{2}{c|}{\textbf{3DR Iris+}}   \\ \cline{2-5} 
-                                                                            & \textit{\textbf{A}} & \textit{\textbf{B}} & \textit{\textbf{A}} & \textit{\textbf{B}} \\ \hline
+                                                                            & \textit{\textbf{1}} & \textit{\textbf{2}} & \textit{\textbf{1}} & \textit{\textbf{2}} \\ \hline
 \textit{\textbf{1}}                                                         & 460.41              & 436.08              & 455.12              & 441.72              \\ \hline
 \textit{\textbf{2}}                                                         & 460.69              & 436.89              & 456.93              & 440.18              \\ \hline
 \textit{\textbf{3}}                                                         & 460.08              & 441.68              & 457.19              & 447.51              \\ \hline
@@ -1095,7 +1095,7 @@ Table~\ref{table:plannersReal} presents the performance (total flight time) of b
 
 
 
-Table~\ref{table:plannersReal} indicates that the mission time of planner B is lower then the time of planner A in all five tests with simulator and 3DR Iris+, ensuring the results of the evaluation methodology.
+Table~\ref{table:plannersReal} indicates that the mission time of planner 2 is lower than the time of planner 1 in all five tests with simulator and 3DR Iris+, ensuring the results of the evaluation methodology.
 %Figure~\ref{fig:GraPlannersSimulado} shows a bar graph of the simulation flight times of both planners in the five tests.
 %
 %\begin{figure}[H]
@@ -1115,7 +1115,7 @@ Table~\ref{table:plannersReal} indicates that the mission time of planner B is l
 %	\caption{Flight Time Graph of Mission Planners Relative to 5 Tests in a Real Environment.\label{fig:GraPlannersReal}}
 %	\end{figure}
 	
-	The aforementioned results confirmed the prediction provided by the planner evaluation methodology, and the planner B is faster than planner A in all the tests with simulations and IRIS+ tests.
+	The aforementioned results confirmed the prediction provided by the planner evaluation methodology, and the planner 2 is faster than planner 1 in all the tests with simulations and IRIS+ tests.
 	
 \subsection{Threats to Validity}
 \label{sec:ameacas}
@@ -1224,7 +1224,16 @@ However, in case we change the scenario where the number of UAVs increases, our 
 
 
 \section{Conclusion}
-The conclusion goes here.
+\label{sec:conclusao}
+%---------------------------------
+
+We have presented an evaluation methodology for UAV mission planner in an industrial production scenario, as described in Section~\ref{sec:method}. We have used a evaluation methodology to perform two different algorithms to verify the performance of them. Our approach uses an optimizer tool to generate an optimal cost for a mission (w.r.t. flight time) and compares to different algorithm strategies using the index defined in Eq.~\ref{eq:MPCI}.
+ 
+In addition, we have developed a framework for mission planning, command and control for intralogistics mission using a commercial UAV. We used an UAV to solve intralogistics problems using the dronekit API to control and command adopting a high-level programming language.
+
+Summary, our experiments to test the evaluation methodology for mission planner were done successfully as expected in simulated environment as well as in a real environment using a real UAV, and consequently, the methodology is able to evaluate mission planner algorithms for intralogistics problems. Moreover, the framework can solve the necessity of control and command a commercial UAV. Thus, our work is a new tool to verify a specific problem of intralogistics.
+
+Future work includes the use of computational vision for the recognition of inputs, and improvements of the optimization problem modeling for better results in cost evaluation. Supplementary, we will make experiments in a cooperative work environment where the number of UAVs is greater than two.
 
 
 
@@ -1264,16 +1273,16 @@ The authors would like to thank...
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-%\begin{thebibliography}{1}
+\begin{thebibliography}{1}
 
-%\bibitem{IEEEhowto:kopka}
-%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip %1em plus
-%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+  
 
 %\bibliography{exemplo}
 
-%\end{thebibliography}
-
+\end{thebibliography}
 
 
 
